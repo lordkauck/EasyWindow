@@ -9,18 +9,30 @@
 #define GET_X_LPARAM(lp)                        ((int)(short)LOWORD(lp))
 #define GET_Y_LPARAM(lp)                        ((int)(short)HIWORD(lp))
 
+<<<<<<< HEAD
 b8 APICALL in_window(_EasyWindow* window, int16 x, int16 y) {
+=======
+b8 PROJ_APICALL in_window(_EasyWindow* window, int16 x, int16 y) {
+>>>>>>> Initial Commit
 	return !(
 		(x >= 0 && x < (int16)window->cfg->get.width(window->cfg)) 
 	 && (y >= 0 && y < (int16)window->cfg->get.height(window->cfg))
 	);
 }
 
+<<<<<<< HEAD
 b8 APICALL mb_held(int32 lparam, uint8 mask) { 
 	return !(lparam & mask); 
 }
 
 LRESULT APICALL W32WndMsgProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
+=======
+b8 PROJ_APICALL mb_held(int32 lparam, uint8 mask) { 
+	return !(lparam & mask); 
+}
+
+LRESULT __stdcall W32WndMsgProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam) {
+>>>>>>> Initial Commit
 	_EasyWindow* window = (_EasyWindow*)GetPropA(hwnd, "W32EmptyWindow");
 	if (!window) {
 		switch (msg) {

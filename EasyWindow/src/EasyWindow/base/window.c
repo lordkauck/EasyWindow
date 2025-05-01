@@ -1,8 +1,16 @@
 #include "config.h"
 #include "internal.h"
+
+#if defined(EASYWND_LIB_DLL)
+	#define PROJECT_LIB_DLL 1
+	#if defined(EASYWND_DLL)
+		#define PROJECT_DLL 1
+	#endif // defined(EASYWND_DLL)
+#endif // defined(EASYWND_LIB_DLL) 
+#include "Project/ProjectBase.h"
 #include <assert.h>
 
-EASYWINDOW_API EasyWindow APICALL EasyWindowCreateWindow(const char* title, float width, float height, unsigned char flags) {
+PROJ_SYMBOL EasyWindow PROJ_APICALL EasyWindowCreateWindow(const char* title, float width, float height, unsigned char flags) {
 	_EasyWindow* window = (_EasyWindow*)calloc(1, sizeof(_EasyWindow));
 	assert(window != nullptr);
 	if (window == nullptr) return nullptr;
@@ -26,7 +34,7 @@ EASYWINDOW_API EasyWindow APICALL EasyWindowCreateWindow(const char* title, floa
 	return (EasyWindow*)window;
 }
 
-EASYWINDOW_API void APICALL EasyWindowDestroyWindow(EasyWindow* handle) {
+PROJ_SYMBOL void PROJ_APICALL EasyWindowDestroyWindow(EasyWindow* handle) {
 	_EasyWindow* window = (_EasyWindow*)handle;
 	if (window == nullptr) return;
 	
@@ -37,12 +45,12 @@ EASYWINDOW_API void APICALL EasyWindowDestroyWindow(EasyWindow* handle) {
 	free(window);
 }
 
-void APICALL EasyWindowMinimizeWindow(_EasyWindow* window) {
+void PROJ_APICALL EasyWindowMinimizeWindow(_EasyWindow* window) {
 	if (window->callback.minimize)
 		window->callback.minimize((EasyWindow)window);
 }
 
-void APICALL EasyWindowResizeWindow(_EasyWindow* window, int16 width, int16 height) {
+void PROJ_APICALL EasyWindowResizeWindow(_EasyWindow* window, int16 width, int16 height) {
 	window->cfg->set.width(window->cfg, (float)width);
 	window->cfg->set.height(window->cfg, (float)height);
 
@@ -55,24 +63,24 @@ void APICALL EasyWindowResizeWindow(_EasyWindow* window, int16 width, int16 heig
 		window->callback.resize((EasyWindow*)window, width, height);
 }
 
-void APICALL EasyWindowCloseRequest(_EasyWindow* window) {
+void PROJ_APICALL EasyWindowCloseRequest(_EasyWindow* window) {
 	window->closed = true;
 
 	if (window->callback.close)
 		window->callback.close((EasyWindow*)window);
 }
 
-EASYWINDOW_API void APICALL EasyWindowPollEvents(void) {
+PROJ_SYMBOL void PROJ_APICALL EasyWindowPollEvents(void) {
 	_EasyWindowNativePollEvents();
 }
 
-EASYWINDOW_API float APICALL EasyWindowGetWindowWidth(EasyWindow handle) {
+PROJ_SYMBOL float PROJ_APICALL EasyWindowGetWindowWidth(EasyWindow handle) {
 	if (!handle) return 0.0f;
 	_EasyWindow* window = (_EasyWindow*)handle;
 	return window->cfg->get.width(window->cfg);
 }
 
-EASYWINDOW_API float APICALL EasyWindowGetWindowHeight(EasyWindow handle) {
+PROJ_SYMBOL float PROJ_APICALL EasyWindowGetWindowHeight(EasyWindow handle) {
 	if (!handle) return 0.0f;
 	_EasyWindow* window = (_EasyWindow*)handle;
 	return window->cfg->get.height(window->cfg);

@@ -2,12 +2,18 @@
 #define EASYWINDOW_INTERNAL_H
 
 #include "EasyWindow/base/base.h"
-#include "EasyWindow/base/basetypes.h"
+#if defined(EASYWND_LIB_DLL)
+	#define PROJECT_LIB_DLL 1
+	#if defined(EASYWND_DLL)
+		#define PROJECT_DLL 1
+	#endif // defined(EASYWND_DLL)
+#endif // defined(EASYWND_LIB_DLL) 
+#include "Project/ProjectBase.h"
 #include "EasyWindow.h"
 
-#if defined(EASYWINDOW_PLATFORM_WIN)
+#if defined(PLATFORM_WIN)
 #include "EasyWindow/win32/win32window.h"
-#elif defined (EASYWINDOW_PLATFORM_UNIX)
+#elif defined (PLATFORM_LINUX)
 // @TODO: Support other platforms
 #endif
 
@@ -46,14 +52,14 @@ extern "C" {
 			int32 py;
 			float vx;
 			float vy;
-			b8 capture;
-			b8 in_window;
+			bool capture;
+			bool in_window;
 		}mouse;
 
 		_EasyWindowKey  keys[255];
 
 		struct {
-#if defined(EASYWINDOW_PLATFORM_WIN)
+#if defined(PLATFORM_WIN)
 			EasyWindowImGuiMsgCallbackfn imgui;
 #endif
 			EasyWindowMinimizeCallbackfn minimize;
@@ -75,34 +81,34 @@ extern "C" {
 
 	extern _EasyWindowLib g_EasyWindow;
 
-	void APICALL EasyWindowAddWindow(_EasyWindow*);
-	void APICALL EasyWindowRemoveWindow(_EasyWindow*);
+	void PROJ_APICALL EasyWindowAddWindow(_EasyWindow*);
+	void PROJ_APICALL EasyWindowRemoveWindow(_EasyWindow*);
 
-	void APICALL EasyWindowCreateCfg(_EasyWindow*, cstring, float, float, uint8);
-	void APICALL EasyWindowDestroyCfg(_EasyWindow* window);
+	void PROJ_APICALL EasyWindowCreateCfg(_EasyWindow*, cstring, float, float, uint8);
+	void PROJ_APICALL EasyWindowDestroyCfg(_EasyWindow* window);
 
 	// @NOTE: All platform independent function definitions
-	void APICALL EasyWindowMinimizeWindow(_EasyWindow* window);
-	void APICALL EasyWindowResizeWindow(_EasyWindow*, int16, int16);
-	void APICALL EasyWindowCloseRequest(_EasyWindow*);
-	void* APICALL EasyWindowGetNativeWindow(_EasyWindow*);
+	void PROJ_APICALL EasyWindowMinimizeWindow(_EasyWindow* window);
+	void PROJ_APICALL EasyWindowResizeWindow(_EasyWindow*, int16, int16);
+	void PROJ_APICALL EasyWindowCloseRequest(_EasyWindow*);
+	void* PROJ_APICALL EasyWindowGetNativeWindow(_EasyWindow*);
 
-	void APICALL EasyWindowInputMouseButton(_EasyWindow*, char);
-	void APICALL EasyWindowInputKeyup(_EasyWindow*, uint16);
-	void APICALL EasyWindowInputKeydown(_EasyWindow*, uint16, uint16);
-	void APICALL EasyWindowMouseXY(_EasyWindow*, float, float);
-	void APICALL EasyWindowInputScroll(_EasyWindow*, float, float);
+	void PROJ_APICALL EasyWindowInputMouseButton(_EasyWindow*, char);
+	void PROJ_APICALL EasyWindowInputKeyup(_EasyWindow*, uint16);
+	void PROJ_APICALL EasyWindowInputKeydown(_EasyWindow*, uint16, uint16);
+	void PROJ_APICALL EasyWindowMouseXY(_EasyWindow*, float, float);
+	void PROJ_APICALL EasyWindowInputScroll(_EasyWindow*, float, float);
 
-	b8 APICALL EasyWindowMouseMoved(_EasyWindow* window, float x, float y);
+	b8 PROJ_APICALL EasyWindowMouseMoved(_EasyWindow* window, float x, float y);
 
 	// @NOTE: All platform dependent function definitions
 	// @TODO: Define these functions based on whatever platform is set
-	void APICALL _EasyWindowPlatformCreateWindow(_EasyWindow*);
-	void* APICALL _EasyWindowNativeWindow(_EasyWindow*);
-	void APICALL _EasyWindowNativePollEvents(void);
-	void APICALL _EasyWindowNativeResizeWindow(_EasyWindow*, int16, int16);
-	void APICALL _EasyWindowNativeInputKeydown(_EasyWindow*, uint16, uint16);
-	void APICALL _EasyWindowNativeInputKeyup(_EasyWindow*, uint16);
+	void PROJ_APICALL _EasyWindowPlatformCreateWindow(_EasyWindow*);
+	void* PROJ_APICALL _EasyWindowNativeWindow(_EasyWindow*);
+	void PROJ_APICALL _EasyWindowNativePollEvents(void);
+	void PROJ_APICALL _EasyWindowNativeResizeWindow(_EasyWindow*, int16, int16);
+	void PROJ_APICALL _EasyWindowNativeInputKeydown(_EasyWindow*, uint16, uint16);
+	void PROJ_APICALL _EasyWindowNativeInputKeyup(_EasyWindow*, uint16);
 	
 #ifdef __cplusplus
 }
