@@ -15,24 +15,66 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\EasyWindow\base\base.h">
+    <ClInclude Include="vendor\Project\Primatives.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\EasyWindow\base\defines.h">
+    <ClInclude Include="vendor\Project\ProjectAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\Project\ProjectBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EasyWindow\base\base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\EasyWindow\base\basetypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\EasyWindow.h">
+    <ClInclude Include="src\EasyWindow\base\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EasyWindow\base\defines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\EasyWindow\base\internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\EasyWindow\win32\win32window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EasyWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EasyWindow\base\internal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EasyWindow\base\callbacks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EasyWindow\base\config.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EasyWindow\base\init.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EasyWindow\base\input.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EasyWindow\base\internal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EasyWindow\base\window.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EasyWindow\win32\win32init.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EasyWindow\win32\win32window.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EasyWindow\win32\win32wndproc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

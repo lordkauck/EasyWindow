@@ -29,12 +29,29 @@
 		#endif // defined(PROJECT_FIND_ARCH)
 		#pragma pop_macro("PROJECT_FIND_ARCH")
 
-		#if defined(PLATFORM_WIN)
-			#define PROJ_APICALL __stdcall
+		#pragma push_macro("PROJECT_APIS")
+		#define PROJECT_APIS 1
+		#if defined(PROJECT_APIS)
+			#if defined(__cplusplus)
+				#define PROJ_APICALL __stdcall
+			#else
+				#define PROJ_APICALL __cdecl
+			#endif
+
 			#define PROJ_CDECL __cdecl 
 			#define PROJ_THISCALL __thiscall
 			#define PROJ_FASTCALL __fastcall  
 			#define PROJ_VECCALL __vectorcall 
+		#else
+			#define PROJ_APICALL
+			#define PROJ_CDECL
+			#define PROJ_THISCALL 
+			#define PROJ_FASTCALL 
+			#define PROJ_VECCALL 
+		#endif
+		#pragma pop_macro("PROJECT_APIS")
+
+		#if defined(PLATFORM_WIN)
 			#if defined(PROJECT_DLL) 
 				#if defined(PROJECT_BUILD_DLL)
 				#define PROJ_SYMBOL __declspec(dllexport)
@@ -51,11 +68,6 @@
 				#define PROJ_SYMBOL 
 			#endif
 		#else
-			#define PROJ_APICALL
-			#define PROJ_CDECL
-			#define PROJ_THISCALL 
-			#define PROJ_FASTCALL 
-			#define PROJ_VECCALL 
 			#define PROJ_SYMBOL 
 		#endif // defined(PLATFORM_WIN)
 	#endif // PROJECT_ENABLE_MACROS 1
