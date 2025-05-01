@@ -26,11 +26,11 @@ bool g_closed = false;
 static void close_app(void) noexcept(true) { g_closed = true; }
 int main(int argc, char* argv[]) {
     EasyWindow window = EasyWindowCreateWindow("EasyWindow Test", 1280.0f, 720.0f, 0u);
-    	EasyWindowSetCloseCallback(window,
-		    [](EasyWindow window) {
-			    close_app();
-		    }
-	  );
+    EasyWindowSetCloseCallback(window,
+        [](EasyWindow window) {
+           close_app();
+        }
+    );
 
     while(!g_closed) {
          EasyWindowPollEvents();
