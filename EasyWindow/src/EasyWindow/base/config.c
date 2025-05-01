@@ -14,20 +14,20 @@ typedef struct _IWindowCfg {
 }IWindowCfg;
 
 
-static void PROJ_APICALL wcfg_create(WindowCfg*, cstring title, float width, float height, uint8 flags);
-static void PROJ_APICALL wcfg_destroy(WindowCfg* cfg);
+static void APICALL wcfg_create(WindowCfg*, cstring title, float width, float height, uint8 flags);
+static void APICALL wcfg_destroy(WindowCfg* cfg);
 
-static cstring PROJ_APICALL wcfg_title(WindowCfg* cfg);
-static float PROJ_APICALL wcfg_width(WindowCfg* cfg);
-static float PROJ_APICALL wcfg_height(WindowCfg* cfg);
-static uint8 PROJ_APICALL wcfg_flags(WindowCfg* cfg);
+static cstring APICALL wcfg_title(WindowCfg* cfg);
+static float APICALL wcfg_width(WindowCfg* cfg);
+static float APICALL wcfg_height(WindowCfg* cfg);
+static uint8 APICALL wcfg_flags(WindowCfg* cfg);
 
-static void PROJ_APICALL wcfg_set_title(WindowCfg* cfg, cstring title);
-static void PROJ_APICALL wcfg_set_width(WindowCfg* cfg, float width);
-static void PROJ_APICALL wcfg_set_height(WindowCfg* cfg, float height);
-static void PROJ_APICALL wcfg_set_flags(WindowCfg* cfg, uint8 flags);
+static void APICALL wcfg_set_title(WindowCfg* cfg, cstring title);
+static void APICALL wcfg_set_width(WindowCfg* cfg, float width);
+static void APICALL wcfg_set_height(WindowCfg* cfg, float height);
+static void APICALL wcfg_set_flags(WindowCfg* cfg, uint8 flags);
 
-WindowCfg* PROJ_APICALL wcfg_construct(void) {
+WindowCfg* APICALL wcfg_construct(void) {
 	IWindowCfg* icfg = (IWindowCfg*)calloc(1, sizeof(IWindowCfg));
 	if (!icfg) return nullptr;
 
@@ -47,7 +47,7 @@ WindowCfg* PROJ_APICALL wcfg_construct(void) {
 	return (WindowCfg*)icfg;
 }
 
-static void PROJ_APICALL wcfg_create(WindowCfg* cfg, cstring title, float width, float height, uint8 flags) {
+static void APICALL wcfg_create(WindowCfg* cfg, cstring title, float width, float height, uint8 flags) {
 	IWindowCfg* icfg = (IWindowCfg*)cfg;
 	icfg->title = title;
 	icfg->width = width;
@@ -56,7 +56,7 @@ static void PROJ_APICALL wcfg_create(WindowCfg* cfg, cstring title, float width,
 	
 }
 
-static void PROJ_APICALL wcfg_destroy(WindowCfg* cfg) {
+static void APICALL wcfg_destroy(WindowCfg* cfg) {
 	IWindowCfg* icfg = (IWindowCfg*)cfg;
 
 	memset(&icfg->create, 0, sizeof(icfg->create));
@@ -66,42 +66,42 @@ static void PROJ_APICALL wcfg_destroy(WindowCfg* cfg) {
 	free(icfg);
 }
 
-static cstring PROJ_APICALL wcfg_title(WindowCfg* cfg) {
+static cstring APICALL wcfg_title(WindowCfg* cfg) {
 	IWindowCfg* icfg = (IWindowCfg*) cfg;
 	return icfg->title;
 }
 
-static float PROJ_APICALL wcfg_width(WindowCfg* cfg) {
+static float APICALL wcfg_width(WindowCfg* cfg) {
 	IWindowCfg* icfg = (IWindowCfg*)cfg;
 	return icfg->width;
 }
 
-static float PROJ_APICALL wcfg_height(WindowCfg* cfg) {
+static float APICALL wcfg_height(WindowCfg* cfg) {
 	IWindowCfg* icfg = (IWindowCfg*)cfg;
 	return icfg->height;
 }
 
-static uint8 PROJ_APICALL wcfg_flags(WindowCfg* cfg) {
+static uint8 APICALL wcfg_flags(WindowCfg* cfg) {
 	IWindowCfg* icfg = (IWindowCfg*)cfg;
 	return icfg->flags;
 }
 
-static void PROJ_APICALL wcfg_set_title(WindowCfg* cfg, cstring title) {
+static void APICALL wcfg_set_title(WindowCfg* cfg, cstring title) {
 	IWindowCfg* icfg = (IWindowCfg*)cfg;
 	icfg->title = title;
 }
 
-static void PROJ_APICALL wcfg_set_width(WindowCfg* cfg, float width) {
+static void APICALL wcfg_set_width(WindowCfg* cfg, float width) {
 	IWindowCfg* icfg = (IWindowCfg*)cfg;
 	icfg->width = width;
 }
 
-static void PROJ_APICALL wcfg_set_height(WindowCfg* cfg, float height) {
+static void APICALL wcfg_set_height(WindowCfg* cfg, float height) {
 	IWindowCfg* icfg = (IWindowCfg*)cfg;
 	icfg->height = height;
 }
 
-static void PROJ_APICALL wcfg_set_flags(WindowCfg* cfg, uint8 flags) {
+static void APICALL wcfg_set_flags(WindowCfg* cfg, uint8 flags) {
 	IWindowCfg* icfg = (IWindowCfg*)cfg;
 	icfg->flags = flags;
 }

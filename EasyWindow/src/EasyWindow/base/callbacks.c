@@ -7,40 +7,40 @@
 		PtrSwapMacro(window->callback.name, callback)\
 		return callback
 
-#if PLATFORM_WIN
-PROJ_SYMBOL EasyWindowImGuiMsgCallbackfn EasyWindowSetImGuiMsgCallback(EasyWindow handle, EasyWindowImGuiMsgCallbackfn callback) {
+#if EASYWINDOW_PLATFORM_WIN
+EASYWINDOW_API EasyWindowImGuiMsgCallbackfn EasyWindowSetImGuiMsgCallback(EasyWindow handle, EasyWindowImGuiMsgCallbackfn callback) {
 	SetCallbackMacro(handle, imgui, callback);
 }
 #endif 
 
-PROJ_SYMBOL EasyWindowMinimizeCallbackfn EasyWindowSetMinimizeCallback(EasyWindow handle, EasyWindowResizeCallbackfn callback) {
+EASYWINDOW_API EasyWindowMinimizeCallbackfn EasyWindowSetMinimizeCallback(EasyWindow handle, EasyWindowResizeCallbackfn callback) {
 	SetCallbackMacro(handle, minimize, callback);
 }
 
-PROJ_SYMBOL EasyWindowResizeCallbackfn EasyWindowSetResizeCallback(EasyWindow handle, EasyWindowResizeCallbackfn callback) {
+EASYWINDOW_API EasyWindowResizeCallbackfn EasyWindowSetResizeCallback(EasyWindow handle, EasyWindowResizeCallbackfn callback) {
 	SetCallbackMacro(handle, resize, callback);
 }
 
-PROJ_SYMBOL EasyWindowCloseCallbackfn EasyWindowSetCloseCallback(EasyWindow handle, EasyWindowCloseCallbackfn callback) {
+EASYWINDOW_API EasyWindowCloseCallbackfn EasyWindowSetCloseCallback(EasyWindow handle, EasyWindowCloseCallbackfn callback) {
 	SetCallbackMacro(handle, close, callback);
 }
 
-PROJ_SYMBOL EasyWindowKeyupCallbackfn EasyWindowSetKeyupCallback(EasyWindow handle, EasyWindowKeyupCallbackfn callback) {
+EASYWINDOW_API EasyWindowKeyupCallbackfn EasyWindowSetKeyupCallback(EasyWindow handle, EasyWindowKeyupCallbackfn callback) {
 	SetCallbackMacro(handle, keyup, callback);
 }
 
-PROJ_SYMBOL EasyWindowKeydownCallbackfn EasyWindowSetKeydownCallback(EasyWindow handle, EasyWindowKeydownCallbackfn callback) {
+EASYWINDOW_API EasyWindowKeydownCallbackfn EasyWindowSetKeydownCallback(EasyWindow handle, EasyWindowKeydownCallbackfn callback) {
 	SetCallbackMacro(handle, keydown, callback);
 }
 
-PROJ_SYMBOL EasyWindowMouseButtonCallbackfn EasyWindowSetMouseButtonCallback(EasyWindow handle, EasyWindowMouseButtonCallbackfn callback) {
+EASYWINDOW_API EasyWindowMouseButtonCallbackfn EasyWindowSetMouseButtonCallback(EasyWindow handle, EasyWindowMouseButtonCallbackfn callback) {
 	SetCallbackMacro(handle, mouse_button, callback);
 }
 
-PROJ_SYMBOL EasyWindowMouseMoveCallbackfn EasyWindowSetMouseMoveCallback(EasyWindow handle, EasyWindowMouseMoveCallbackfn callback) {
+EASYWINDOW_API EasyWindowMouseMoveCallbackfn EasyWindowSetMouseMoveCallback(EasyWindow handle, EasyWindowMouseMoveCallbackfn callback) {
 	SetCallbackMacro(handle, mouse_move, callback);
 }
 
-PROJ_SYMBOL EasyWindowScrollCallbackfn EasyWindowSetScrollCallback(EasyWindow handle, EasyWindowScrollCallbackfn callback) {
+EASYWINDOW_API EasyWindowScrollCallbackfn EasyWindowSetScrollCallback(EasyWindow handle, EasyWindowScrollCallbackfn callback) {
 	SetCallbackMacro(handle, scroll, callback);
 }

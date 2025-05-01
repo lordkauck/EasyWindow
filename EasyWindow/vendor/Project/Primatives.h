@@ -15,10 +15,7 @@ typedef const char*				 cstring;
 
 #ifndef __cplusplus
 typedef char bool;
-typedef char b8;
 #define nullptr 0
-#define true 1
-#define false 0
 #endif // __cplusplus
 
 #if defined(ARCHX86) 

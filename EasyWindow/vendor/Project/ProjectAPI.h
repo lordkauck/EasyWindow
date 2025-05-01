@@ -52,15 +52,15 @@
 		#pragma pop_macro("PROJECT_APIS")
 
 		#if defined(PLATFORM_WIN)
-			#if defined(PROJECT_LIB_DLL) 
-				#if defined(PROJECT_DLL)
+			#if defined(PROJECT_DLL) 
+				#if defined(PROJECT_BUILD_DLL)
 				#define PROJ_SYMBOL __declspec(dllexport)
 			#else
 				#define PROJ_SYMBOL __declspec(dllimport)
-			#endif // defined(PROJECT_DLL)
+			#endif // defined(PROJECT_BUILD_DLL)
 			#else
 				#define PROJ_SYMBOL
-			#endif // defined(PROJECT_LIB_DLL)
+			#endif // defined(PROJECT_DLL)
 		#elif defined(PLATFORM_LINUX)
 			#if defined(PROJECT_LIB)
 				#define PROJ_SYMBOL __attribute__((visibility("default")))
