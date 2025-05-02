@@ -3,10 +3,14 @@
 
 #include "EasyWindow/base/base.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "EasyWindow/base/basetypes.h"
 =======
 #include "Project/ProjectBase.h"
 >>>>>>> Initial Commit
+=======
+#include "EasyWindow/base/basetypes.h"
+>>>>>>> Fixing broken stuff
 #include <Windows.h>
 
 EASYWINDOW_STRUCT(_EasyWindow);
@@ -26,6 +30,7 @@ extern "C" {
 #endif
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 b8 APICALL in_window(_EasyWindow*, int16, int16);
 b8 APICALL mb_held(int32, uint8);
 
@@ -40,6 +45,8 @@ HWND APICALL W32GetHandle(_EasyWindow*);
 
 LRESULT APICALL W32WndMsgProc(HWND, UINT, WPARAM, LPARAM);
 =======
+=======
+>>>>>>> Fixing broken stuff
 b8 PROJ_APICALL in_window(_EasyWindow*, int16, int16);
 b8 PROJ_APICALL mb_held(int32, uint8);
 
@@ -52,8 +59,12 @@ void PROJ_APICALL W32FocusWindow(_EasyWindow*);
 HWND PROJ_APICALL W32GetHandle(_EasyWindow*);
 
 
+<<<<<<< HEAD
 LRESULT __stdcall W32WndMsgProc(HWND, UINT, WPARAM, LPARAM);
 >>>>>>> Initial Commit
+=======
+LRESULT PROJ_APICALL W32WndMsgProc(HWND, UINT, WPARAM, LPARAM);
+>>>>>>> Fixing broken stuff
 
 #ifdef __cplusplus
 }
