@@ -12,15 +12,7 @@
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 #define SelfInstanceMacro ((HINSTANCE)&__ImageBase) 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-void APICALL W32CreateNativeWindow(_EasyWindow* window) {
-=======
 void PROJ_APICALL W32CreateNativeWindow(_EasyWindow* window) {
->>>>>>> Initial Commit
-=======
-void PROJ_APICALL W32CreateNativeWindow(_EasyWindow* window) {
->>>>>>> Fixing broken stuff
 	// @NOTE: Easy hack for getting instance handle, no need to pass as a parameter now! >:3
 	window->win32.instance = SelfInstanceMacro;
 

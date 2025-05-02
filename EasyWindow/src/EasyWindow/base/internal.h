@@ -75,9 +75,6 @@ extern "C" {
 
 	extern _EasyWindowLib g_EasyWindow;
 
-	void PROJ_APICALL EasyWindowAddWindow(_EasyWindow*);
-	void PROJ_APICALL EasyWindowRemoveWindow(_EasyWindow*);
-
 	void PROJ_APICALL EasyWindowCreateCfg(_EasyWindow*, cstring, float, float, uint8);
 	void PROJ_APICALL EasyWindowDestroyCfg(_EasyWindow* window);
 

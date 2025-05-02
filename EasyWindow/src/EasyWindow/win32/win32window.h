@@ -2,19 +2,7 @@
 #define EASYWINDOW_WIN32WINDOW_H
 
 #include "EasyWindow/base/base.h"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-#include "EasyWindow/base/basetypes.h"
-=======
 #include "Project/ProjectBase.h"
->>>>>>> Initial Commit
-=======
-#include "EasyWindow/base/basetypes.h"
->>>>>>> Fixing broken stuff
-=======
-#include "Project/ProjectBase.h"
->>>>>>> Fixed broken project
 #include <Windows.h>
 
 EASYWINDOW_STRUCT(_EasyWindow);
@@ -33,24 +21,6 @@ struct _W32Window {
 extern "C" {
 #endif
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-b8 APICALL in_window(_EasyWindow*, int16, int16);
-b8 APICALL mb_held(int32, uint8);
-
-// @NOTE Win32 Platform function definitions
-void APICALL W32CreateNativeWindow(_EasyWindow*);
-void APICALL W32PollEvents(void);
-void APICALL W32ResizeWindow(_EasyWindow*, int16, int16);
-void APICALL W32UnregisterDestroyWnd(_EasyWindow*);
-void APICALL W32FocusWindow(_EasyWindow*);
-HWND APICALL W32GetHandle(_EasyWindow*);
-
-
-LRESULT APICALL W32WndMsgProc(HWND, UINT, WPARAM, LPARAM);
-=======
-=======
->>>>>>> Fixing broken stuff
 b8 PROJ_APICALL in_window(_EasyWindow*, int16, int16);
 b8 PROJ_APICALL mb_held(int32, uint8);
 
@@ -63,12 +33,7 @@ void PROJ_APICALL W32FocusWindow(_EasyWindow*);
 HWND PROJ_APICALL W32GetHandle(_EasyWindow*);
 
 
-<<<<<<< HEAD
 LRESULT __stdcall W32WndMsgProc(HWND, UINT, WPARAM, LPARAM);
->>>>>>> Initial Commit
-=======
-LRESULT PROJ_APICALL W32WndMsgProc(HWND, UINT, WPARAM, LPARAM);
->>>>>>> Fixing broken stuff
 
 #ifdef __cplusplus
 }
