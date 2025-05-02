@@ -37,13 +37,14 @@
 			#else
 				#define PROJ_APICALL __cdecl
 			#endif
-
+			#define PROJ_STDCALL __stdcall
 			#define PROJ_CDECL __cdecl 
 			#define PROJ_THISCALL __thiscall
 			#define PROJ_FASTCALL __fastcall  
 			#define PROJ_VECCALL __vectorcall 
 		#else
 			#define PROJ_APICALL
+			#define PROJ_STDCALL
 			#define PROJ_CDECL
 			#define PROJ_THISCALL 
 			#define PROJ_FASTCALL 
