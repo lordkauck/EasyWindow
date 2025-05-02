@@ -9,6 +9,6 @@ static int __stdcall DllMain(HMODULE dll, DWORD fdwReason, LPVOID lpvReserved) {
 }
 #endif
 
-EASYWINDOW_API void APICALL EasyWindowInit(void) {
+PROJ_SYMBOL void PROJ_APICALL EasyWindowInit(void) {
 	
 }

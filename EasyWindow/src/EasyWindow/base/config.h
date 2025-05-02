@@ -1,7 +1,7 @@
 #pragma once
 
 #include "EasyWindow/base/base.h"
-#include "EasyWindow/base/basetypes.h"
+#include "Project/ProjectBase.h"
 
 #if defined(__cplusplus)
 extern "C" {
@@ -9,18 +9,18 @@ extern "C" {
 
 EASYWINDOW_STRUCT(WindowCfg);
 
-typedef cstring(APICALL *WCfgGetTitlefn)(WindowCfg*);
-typedef float(APICALL *WcfgGetWidthfn)(WindowCfg*);
-typedef float(APICALL *WcfgGetHeightfn)(WindowCfg*);
-typedef uint8(APICALL *WCfgGetFlagsfn)(WindowCfg*);
+typedef cstring(PROJ_APICALL *WCfgGetTitlefn)(WindowCfg*);
+typedef float(PROJ_APICALL *WcfgGetWidthfn)(WindowCfg*);
+typedef float(PROJ_APICALL *WcfgGetHeightfn)(WindowCfg*);
+typedef uint8(PROJ_APICALL *WCfgGetFlagsfn)(WindowCfg*);
 
-typedef void (APICALL* WCfgSetTitlefn)(WindowCfg*, cstring);
-typedef void (APICALL* WCfgSetWidthfn)(WindowCfg*, float);
-typedef void (APICALL* WCfgSetHeightfn)(WindowCfg*, float);
-typedef void (APICALL* WCfgSetFlagsfn)(WindowCfg*, uint8);
+typedef void (PROJ_APICALL* WCfgSetTitlefn)(WindowCfg*, cstring);
+typedef void (PROJ_APICALL* WCfgSetWidthfn)(WindowCfg*, float);
+typedef void (PROJ_APICALL* WCfgSetHeightfn)(WindowCfg*, float);
+typedef void (PROJ_APICALL* WCfgSetFlagsfn)(WindowCfg*, uint8);
 
-typedef void (APICALL* WCfgCreatefn)(WindowCfg*, cstring, float, float, uint8);
-typedef void (APICALL* WCfgDestroyfn)(WindowCfg*);
+typedef void (PROJ_APICALL* WCfgCreatefn)(WindowCfg*, cstring, float, float, uint8);
+typedef void (PROJ_APICALL* WCfgDestroyfn)(WindowCfg*);
 
 typedef struct _WindowCfgGet {
 	WCfgGetTitlefn title;
@@ -43,7 +43,7 @@ struct WindowCfg {
 	WindowCfgSet set;
 };
 
-WindowCfg* APICALL wcfg_construct(void);
+WindowCfg* PROJ_APICALL wcfg_construct(void);
 
 #if defined(__cplusplus)
 }

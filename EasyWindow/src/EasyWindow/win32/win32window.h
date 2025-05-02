@@ -4,6 +4,7 @@
 #include "EasyWindow/base/base.h"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "EasyWindow/base/basetypes.h"
 =======
 #include "Project/ProjectBase.h"
@@ -11,6 +12,9 @@
 =======
 #include "EasyWindow/base/basetypes.h"
 >>>>>>> Fixing broken stuff
+=======
+#include "Project/ProjectBase.h"
+>>>>>>> Fixed broken project
 #include <Windows.h>
 
 EASYWINDOW_STRUCT(_EasyWindow);

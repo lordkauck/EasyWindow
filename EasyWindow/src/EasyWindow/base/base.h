@@ -1,7 +1,7 @@
 #ifndef EASYWINDOW_BASE_H
 #define EASYWINDOW_BASE_H
 
-#include "defines.h"
+#include "Project/ProjectBase.h"
 #pragma push_macro("EASYWND_ENABLE_MACROS")
 #define EASYWND_ENABLE_MACROS 1
 

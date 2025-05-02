@@ -1,7 +1,16 @@
 #ifndef EASYWINDOW_H
 #define EASYWINDOW_H
 
-#include "EasyWindow/base/defines.h"
+#pragma push_macro("DLLEXPORT")
+#if defined(EASYWND_LIB_DLL)
+	#if defined(EASYWND_DLL)
+		#define DLLEXPORT __declspec(dllexport)
+	#else
+		#define DLLEXPORT __declspec(dllimport)
+	#endif // defined(EASYWND_DLL)
+#else
+	#define DLLEXPORT
+#endif // defined EASYWND_LIB_DLL
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,30 +27,27 @@ typedef void (*EasyWindowMouseButtonCallbackfn)(EasyWindow, char);
 typedef void (*EasyWindowMouseMoveCallbackfn)(EasyWindow, float, float);
 typedef void (*EasyWindowScrollCallbackfn)(EasyWindow, float, float);
 
-
-EASYWINDOW_API void APICALL EasyWindowInit(void);
-EASYWINDOW_API EasyWindow APICALL EasyWindowCreateWindow(const char*, float, float, unsigned char);
-EASYWINDOW_API void APICALL EasyWindowDestroyWindow(EasyWindow);
-EASYWINDOW_API void APICALL EasyWindowPollEvents(void);
-EASYWINDOW_API void* APICALL EasyWindowGetNativeWindow(EasyWindow);
-EASYWINDOW_API float APICALL EasyWindowGetWindowWidth(EasyWindow handle);
-EASYWINDOW_API float APICALL EasyWindowGetWindowHeight(EasyWindow handle);
-
-#if EASYWINDOW_PLATFORM_WIN
 //@HACK: This was the dumbest, easiest and simplest to implement way i could think of, for implementing ImGUI support
 typedef long (*EasyWindowImGuiMsgCallbackfn)(struct HWND__*, unsigned int, unsigned int, long);
 
-EASYWINDOW_API EasyWindowImGuiMsgCallbackfn EasyWindowSetImGuiMsgCallback(EasyWindow, EasyWindowImGuiMsgCallbackfn);
-#endif
 
-EASYWINDOW_API EasyWindowMinimizeCallbackfn EasyWindowSetMinimizeCallback(EasyWindow, EasyWindowResizeCallbackfn);
-EASYWINDOW_API EasyWindowResizeCallbackfn EasyWindowSetResizeCallback(EasyWindow, EasyWindowResizeCallbackfn);
-EASYWINDOW_API EasyWindowCloseCallbackfn EasyWindowSetCloseCallback(EasyWindow, EasyWindowCloseCallbackfn);
-EASYWINDOW_API EasyWindowKeyupCallbackfn EasyWindowSetKeyupCallback(EasyWindow, EasyWindowKeyupCallbackfn);
-EASYWINDOW_API EasyWindowKeydownCallbackfn EasyWindowSetKeydownCallback(EasyWindow, EasyWindowKeydownCallbackfn);
-EASYWINDOW_API EasyWindowMouseButtonCallbackfn EasyWindowSetMouseButtonCallback(EasyWindow, EasyWindowMouseButtonCallbackfn);
-EASYWINDOW_API EasyWindowMouseMoveCallbackfn EasyWindowSetMouseMoveCallback(EasyWindow, EasyWindowMouseMoveCallbackfn);
-EASYWINDOW_API EasyWindowScrollCallbackfn EasyWindowSetScrollCallback(EasyWindow, EasyWindowScrollCallbackfn);
+DLLEXPORT void __cdecl EasyWindowInit(void);
+DLLEXPORT EasyWindow __cdecl EasyWindowCreateWindow(const char*, float, float, unsigned char);
+DLLEXPORT void __cdecl EasyWindowDestroyWindow(EasyWindow);
+DLLEXPORT void __cdecl EasyWindowPollEvents(void);
+DLLEXPORT void* __cdecl EasyWindowGetNativeWindow(EasyWindow);
+DLLEXPORT float __cdecl EasyWindowGetWindowWidth(EasyWindow handle);
+DLLEXPORT float __cdecl EasyWindowGetWindowHeight(EasyWindow handle);
+
+DLLEXPORT EasyWindowImGuiMsgCallbackfn EasyWindowSetImGuiMsgCallback(EasyWindow, EasyWindowImGuiMsgCallbackfn);
+DLLEXPORT EasyWindowMinimizeCallbackfn EasyWindowSetMinimizeCallback(EasyWindow, EasyWindowResizeCallbackfn);
+DLLEXPORT EasyWindowResizeCallbackfn EasyWindowSetResizeCallback(EasyWindow, EasyWindowResizeCallbackfn);
+DLLEXPORT EasyWindowCloseCallbackfn EasyWindowSetCloseCallback(EasyWindow, EasyWindowCloseCallbackfn);
+DLLEXPORT EasyWindowKeyupCallbackfn EasyWindowSetKeyupCallback(EasyWindow, EasyWindowKeyupCallbackfn);
+DLLEXPORT EasyWindowKeydownCallbackfn EasyWindowSetKeydownCallback(EasyWindow, EasyWindowKeydownCallbackfn);
+DLLEXPORT EasyWindowMouseButtonCallbackfn EasyWindowSetMouseButtonCallback(EasyWindow, EasyWindowMouseButtonCallbackfn);
+DLLEXPORT EasyWindowMouseMoveCallbackfn EasyWindowSetMouseMoveCallback(EasyWindow, EasyWindowMouseMoveCallbackfn);
+DLLEXPORT EasyWindowScrollCallbackfn EasyWindowSetScrollCallback(EasyWindow, EasyWindowScrollCallbackfn);
 
 #ifdef __cplusplus
 }
