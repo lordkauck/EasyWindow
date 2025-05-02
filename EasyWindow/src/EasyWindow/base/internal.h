@@ -75,31 +75,31 @@ extern "C" {
 
 	extern _EasyWindowLib g_EasyWindow;
 
-	void PROJ_APICALL EasyWindowCreateCfg(_EasyWindow*, cstring, float, float, uint8);
-	void PROJ_APICALL EasyWindowDestroyCfg(_EasyWindow* window);
+	void PROJ_STDCALL EasyWindowCreateCfg(_EasyWindow*, cstring, float, float, uint8);
+	void PROJ_STDCALL EasyWindowDestroyCfg(_EasyWindow* window);
 
 	// @NOTE: All platform independent function definitions
-	void PROJ_APICALL EasyWindowMinimizeWindow(_EasyWindow* window);
-	void PROJ_APICALL EasyWindowResizeWindow(_EasyWindow*, int16, int16);
-	void PROJ_APICALL EasyWindowCloseRequest(_EasyWindow*);
-	void* PROJ_APICALL EasyWindowGetNativeWindow(_EasyWindow*);
+	void PROJ_STDCALL EasyWindowMinimizeWindow(_EasyWindow* window);
+	void PROJ_STDCALL EasyWindowResizeWindow(_EasyWindow*, int16, int16);
+	void PROJ_STDCALL EasyWindowCloseRequest(_EasyWindow*);
+	void* PROJ_STDCALL EasyWindowGetNativeWindow(_EasyWindow*);
 
-	void PROJ_APICALL EasyWindowInputMouseButton(_EasyWindow*, char);
-	void PROJ_APICALL EasyWindowInputKeyup(_EasyWindow*, uint16);
-	void PROJ_APICALL EasyWindowInputKeydown(_EasyWindow*, uint16, uint16);
-	void PROJ_APICALL EasyWindowMouseXY(_EasyWindow*, float, float);
-	void PROJ_APICALL EasyWindowInputScroll(_EasyWindow*, float, float);
+	void PROJ_STDCALL EasyWindowInputMouseButton(_EasyWindow*, char);
+	void PROJ_STDCALL EasyWindowInputKeyup(_EasyWindow*, uint16);
+	void PROJ_STDCALL EasyWindowInputKeydown(_EasyWindow*, uint16, uint16);
+	void PROJ_STDCALL EasyWindowMouseXY(_EasyWindow*, float, float);
+	void PROJ_STDCALL EasyWindowInputScroll(_EasyWindow*, float, float);
 
-	b8 PROJ_APICALL EasyWindowMouseMoved(_EasyWindow* window, float x, float y);
+	b8 PROJ_STDCALL EasyWindowMouseMoved(_EasyWindow* window, float x, float y);
 
 	// @NOTE: All platform dependent function definitions
 	// @TODO: Define these functions based on whatever platform is set
-	void PROJ_APICALL _EasyWindowPlatformCreateWindow(_EasyWindow*);
-	void* PROJ_APICALL _EasyWindowNativeWindow(_EasyWindow*);
-	void PROJ_APICALL _EasyWindowNativePollEvents(void);
-	void PROJ_APICALL _EasyWindowNativeResizeWindow(_EasyWindow*, int16, int16);
-	void PROJ_APICALL _EasyWindowNativeInputKeydown(_EasyWindow*, uint16, uint16);
-	void PROJ_APICALL _EasyWindowNativeInputKeyup(_EasyWindow*, uint16);
+	void PROJ_STDCALL _EasyWindowPlatformCreateWindow(_EasyWindow*);
+	void* PROJ_STDCALL _EasyWindowNativeWindow(_EasyWindow*);
+	void PROJ_STDCALL _EasyWindowNativePollEvents(void);
+	void PROJ_STDCALL _EasyWindowNativeResizeWindow(_EasyWindow*, int16, int16);
+	void PROJ_STDCALL _EasyWindowNativeInputKeydown(_EasyWindow*, uint16, uint16);
+	void PROJ_STDCALL _EasyWindowNativeInputKeyup(_EasyWindow*, uint16);
 	
 #ifdef __cplusplus
 }

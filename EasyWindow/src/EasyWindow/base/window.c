@@ -2,7 +2,7 @@
 #include "internal.h"
 #include <assert.h>
 
-PROJ_SYMBOL EasyWindow PROJ_APICALL EasyWindowCreateWindow(const char* title, float width, float height, unsigned char flags) {
+PROJ_SYMBOL EasyWindow  PROJ_STDCALL EasyWindowCreateWindow(const char* title, float width, float height, unsigned char flags) {
 	_EasyWindow* window = (_EasyWindow*)calloc(1, sizeof(_EasyWindow));
 	assert(window != nullptr);
 	if (window == nullptr) return nullptr;
@@ -26,7 +26,7 @@ PROJ_SYMBOL EasyWindow PROJ_APICALL EasyWindowCreateWindow(const char* title, fl
 	return (EasyWindow*)window;
 }
 
-PROJ_SYMBOL void PROJ_APICALL EasyWindowDestroyWindow(EasyWindow* handle) {
+PROJ_SYMBOL void  PROJ_STDCALL EasyWindowDestroyWindow(EasyWindow* handle) {
 	_EasyWindow* window = (_EasyWindow*)handle;
 	if (window == nullptr) return;
 	
@@ -37,12 +37,12 @@ PROJ_SYMBOL void PROJ_APICALL EasyWindowDestroyWindow(EasyWindow* handle) {
 	free(window);
 }
 
-void PROJ_APICALL EasyWindowMinimizeWindow(_EasyWindow* window) {
+void  PROJ_STDCALL EasyWindowMinimizeWindow(_EasyWindow* window) {
 	if (window->callback.minimize)
 		window->callback.minimize((EasyWindow)window);
 }
 
-void PROJ_APICALL EasyWindowResizeWindow(_EasyWindow* window, int16 width, int16 height) {
+void  PROJ_STDCALL EasyWindowResizeWindow(_EasyWindow* window, int16 width, int16 height) {
 	window->cfg->set.width(window->cfg, (float)width);
 	window->cfg->set.height(window->cfg, (float)height);
 
@@ -55,24 +55,24 @@ void PROJ_APICALL EasyWindowResizeWindow(_EasyWindow* window, int16 width, int16
 		window->callback.resize((EasyWindow*)window, width, height);
 }
 
-void PROJ_APICALL EasyWindowCloseRequest(_EasyWindow* window) {
+void  PROJ_STDCALL EasyWindowCloseRequest(_EasyWindow* window) {
 	window->closed = true;
 
 	if (window->callback.close)
 		window->callback.close((EasyWindow*)window);
 }
 
-PROJ_SYMBOL void PROJ_APICALL EasyWindowPollEvents(void) {
+PROJ_SYMBOL void PROJ_STDCALL EasyWindowPollEvents(void) {
 	_EasyWindowNativePollEvents();
 }
 
-PROJ_SYMBOL float PROJ_APICALL EasyWindowGetWindowWidth(EasyWindow handle) {
+PROJ_SYMBOL float PROJ_STDCALL EasyWindowGetWindowWidth(EasyWindow handle) {
 	if (!handle) return 0.0f;
 	_EasyWindow* window = (_EasyWindow*)handle;
 	return window->cfg->get.width(window->cfg);
 }
 
-PROJ_SYMBOL float PROJ_APICALL EasyWindowGetWindowHeight(EasyWindow handle) {
+PROJ_SYMBOL float PROJ_STDCALL EasyWindowGetWindowHeight(EasyWindow handle) {
 	if (!handle) return 0.0f;
 	_EasyWindow* window = (_EasyWindow*)handle;
 	return window->cfg->get.height(window->cfg);

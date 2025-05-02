@@ -7,7 +7,7 @@
 		PtrSwapMacro(window->callback.name, callback)\
 		return callback
 
-#if EASYWINDOW_PLATFORM_WIN
+#if PLATFORM_WIN
 PROJ_SYMBOL EasyWindowImGuiMsgCallbackfn EasyWindowSetImGuiMsgCallback(EasyWindow handle, EasyWindowImGuiMsgCallbackfn callback) {
 	SetCallbackMacro(handle, imgui, callback);
 }

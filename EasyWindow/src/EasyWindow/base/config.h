@@ -43,7 +43,7 @@ struct WindowCfg {
 	WindowCfgSet set;
 };
 
-WindowCfg* PROJ_APICALL wcfg_construct(void);
+WindowCfg* PROJ_STDCALL wcfg_construct(void);
 
 #if defined(__cplusplus)
 }
